@@ -1,0 +1,11 @@
+{
+    "surveys":[
+        {
+            "id": "",
+            "surveyTitle": "",
+            "description": "",
+            "questions": [{}],
+            "answers": [{}]
+        }
+    ]
+}

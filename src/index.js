@@ -4,12 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import SurveyContextProvider from "./contexts/SurveyContext.js"
+import DataContextProvider from "./contexts/DataContext.js"
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+    <DataContextProvider>
+      <SurveyContextProvider>
+        
+        <App />
+      
+      </SurveyContextProvider>
+      </DataContextProvider>
     </BrowserRouter>
   </React.StrictMode>
 );

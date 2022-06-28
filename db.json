@@ -1,11 +1,53 @@
 {
-    "surveys":[
+  "surveys": [
+    {
+      "surveyTitle": "What to do in the summer?",
+      "surveyDescription": "This survey is collecting data on what people would like to do during summer.",
+      "questions": [
         {
-            "id": "",
-            "surveyTitle": "",
-            "description": "",
-            "questions": [{}],
-            "answers": [{}]
+          "questionTitle": "Which of the the following would you like to do most?",
+          "dropdownQuestionOptions": [
+            "Travel",
+            "Beach and swimming",
+            "Coding"
+          ],
+          "questionType": "dropdown",
+          "questionId": 202
+        },
+        {
+          "questionTitle": "Write shortly about your favorite summer memory.",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 155
         }
-    ]
+      ],
+      "answers": [],
+      "id": 1
+    },
+    {
+      "surveyTitle": "Favorite coding language",
+      "surveyDescription": "We are studying which coding languages people like the most.",
+      "questions": [
+        {
+          "questionTitle": "Which was the first language you learned?",
+          "dropdownQuestionOptions": [
+            "Java",
+            "JavaScript",
+            "Python",
+            "C#"
+          ],
+          "questionType": "dropdown",
+          "questionId": 75
+        },
+        {
+          "questionTitle": "Which language or languages you are using at the moment?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 743
+        }
+      ],
+      "answers": [],
+      "id": 2
+    }
+  ]
 }

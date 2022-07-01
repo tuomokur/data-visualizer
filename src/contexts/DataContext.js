@@ -1,5 +1,7 @@
 import React, { createContext } from "react";
 import axios from "axios";
+import Alert from 'react-bootstrap/Alert';
+
 
 export const DataContext = createContext(undefined);
 
@@ -17,7 +19,12 @@ const dataHandling = {
 
     saveNewSurvey: async (survey) => {
         const res = await axios.post("http://localhost:3001/surveys/", survey);
-        return res; //voisiko tähän laittaa alertin, että survey on tallennettu??
+        <Alert variant="info">The survey was saved successfully!</Alert>;
+        return res
+    },
+    updateSurvey: async (allAnswers, id) => {
+        const res = await axios.patch(`http://localhost:3001/surveys/${id}`, { answers: allAnswers });
+        return res
     }
 };
 

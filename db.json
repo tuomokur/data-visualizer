@@ -5,7 +5,7 @@
       "surveyDescription": "This survey is collecting data on what people would like to do during summer.",
       "questions": [
         {
-          "questionTitle": "Which of the the following would you like to do most?",
+          "questionTitle": "Which of the the following would you like to do the most?",
           "dropdownQuestionOptions": [
             "Travel",
             "Beach and swimming",
@@ -19,9 +19,35 @@
           "dropdownQuestionOptions": "",
           "questionType": "freetext",
           "questionId": 155
+        },
+        {
+          "questionTitle": "What did you do last summer?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 150
         }
       ],
-      "answers": [],
+      "answers": [
+        {
+          "150": "-.kn"
+        },
+        {
+          "155": "kjblj"
+        },
+        {
+          "202": "Travel"
+        },
+        {
+          "150": "jhkkjhjkhgkjhg",
+          "155": "fggfgfgfgfchgcf",
+          "202": "Coding"
+        },
+        {
+          "150": ",m,n.,mn,mnm,",
+          "155": "lkkjkkhkljhjl",
+          "202": "Travel"
+        }
+      ],
       "id": 1
     },
     {
@@ -46,8 +72,95 @@
           "questionId": 743
         }
       ],
-      "answers": [],
+      "answers": [
+        {
+          "75": "Python",
+          "743": "kkjhgjkhghf"
+        },
+        {
+          "75": "JavaScript",
+          "743": "jlbm.mn.,mn.mb,mnb,mnb,mnb,mnb,mn"
+        },
+        {
+          "75": "Java",
+          "743": "-.,m.,m-.,m-"
+        }
+      ],
       "id": 2
+    },
+    {
+      "surveyTitle": "Favorite dish",
+      "surveyDescription": "jkjgkjgkjhgkjhgkjhgkjhgkhj",
+      "questions": [
+        {
+          "questionTitle": "What would you choose?",
+          "dropdownQuestionOptions": [
+            "Pizza",
+            "Chinese",
+            "Italian",
+            "Indian"
+          ],
+          "questionType": "dropdown",
+          "questionId": 24
+        },
+        {
+          "questionTitle": "What is your favorite dish?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 892
+        }
+      ],
+      "answers": [
+        {
+          "24": "Indian",
+          "892": "mnvhjyuyryut"
+        },
+        {
+          "24": "Pizza",
+          "892": "lknöknknölknölknkn"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "surveyTitle": "Basics of JavaScript - Exam",
+      "surveyDescription": "In this exam you have ten questions with dropdown answers and ten free text questions...",
+      "questions": [
+        {
+          "questionTitle": "How to define a variable within a loop?",
+          "dropdownQuestionOptions": [
+            "const",
+            "let",
+            "var"
+          ],
+          "questionType": "dropdown",
+          "questionId": 857
+        },
+        {
+          "questionTitle": "jhgggfdtyriyf",
+          "dropdownQuestionOptions": [
+            "aaaaaaaaaa",
+            "bbbbbbbbbbbbb",
+            "ccccccccccc"
+          ],
+          "questionType": "dropdown",
+          "questionId": 759
+        },
+        {
+          "questionTitle": "What is the main difference between an object and an array?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 964
+        }
+      ],
+      "answers": [
+        {
+          "759": "bbbbbbbbbbbbb",
+          "857": "let",
+          "964": ",jhbkjhkhhvjhgghjhg"
+        }
+      ],
+      "id": 4
     }
   ]
 }

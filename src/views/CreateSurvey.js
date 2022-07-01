@@ -9,11 +9,15 @@ import Container from 'react-bootstrap/Container';
 import Stack from 'react-bootstrap/Stack';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
-import { Trash } from 'react-bootstrap-icons';
+import { Trash, Pencil } from 'react-bootstrap-icons';
 
-import { Button, ButtonGroup } from 'react-bootstrap';
 import React, { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const CreateSurvey = () => {
 
@@ -26,6 +30,8 @@ const CreateSurvey = () => {
     const [newSurvey, setNewSurvey] = useState({ surveyTitle: "", surveyDescription: "", questions: [], answers: [] });
     const [questionType, setQuestionType] = useState("");
 
+    const navigate = useNavigate();
+
     const handleClick = (type) => {
         setQuestionType(type);
     };
@@ -36,10 +42,6 @@ const CreateSurvey = () => {
 
     const createSurveyDescription = (event) => {
         setSurveyDescription(event.target.value);
-    };
-
-    const handleSave = (event) => {
-        addSurvey(newSurvey);
     };
 
     const createQuestion = (questionTitle, dropdownQuestionOptions, questionType) => {
@@ -64,6 +66,11 @@ const CreateSurvey = () => {
         });
     };
 
+    const handleSave = (event) => {
+        addSurvey(newSurvey);
+        navigate("/thanks", { replace: true, state: `Thank you for creating the ${surveyTitle} survey! The survey has now been saved succesfully.` });
+    };
+
     return (
         <div className='createSurvey'>
             <Container className='col-md-8 mx-auto my-4'>
@@ -86,9 +93,23 @@ const CreateSurvey = () => {
                                     <p>{(question.dropdownQuestionOptions) ? `Dropdown options: ${question.dropdownQuestionOptions}` : ""}</p>
                                 </Col>
                                 <Col xs={1} className="text-center">
-                                    <Button onClick={() => removeQuestion(question)} size="sm" variant="light">
-                                        <Trash className='bi bi-trash' size={20}></Trash>
-                                    </Button>
+                                    <ButtonGroup aria-label="Edit tools">
+                                        <OverlayTrigger key="edit" placement="top" overlay={
+                                                <Tooltip id="edit">Edit</Tooltip>
+                                            }>
+                                            <Button size="sm" variant="light">
+                                                <Pencil className='bi bi-pencil' size={20}></Pencil>
+                                            </Button>
+                                        </OverlayTrigger>
+                                        <OverlayTrigger key="delete" placement="top"
+                                            overlay={
+                                                <Tooltip id="delete">Delete</Tooltip>
+                                            }>
+                                            <Button onClick={() => removeQuestion(question)} size="sm" variant="light">
+                                                <Trash className='bi bi-trash' size={20}></Trash>
+                                            </Button>
+                                        </OverlayTrigger>
+                                    </ButtonGroup>
                                 </Col>
                             </Row>
                         </Container>

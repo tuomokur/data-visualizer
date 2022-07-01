@@ -9,7 +9,7 @@ const SurveyContextProvider = (props) => {
 
     const [ selectedSurvey, setSelectedSurvey ] = useState({});
     const [ allSurveys, setAllSurveys ] = useState([]);
-
+    
     useEffect(() => {
         const getAllSurveys = async () => {
             const surveys = await dataContext.getAllSurveys();
@@ -27,7 +27,12 @@ const SurveyContextProvider = (props) => {
     const deleteSurvey = (id) => {
         const surveysExceptDeleted = allSurveys.filter(survey => survey.id !== id);
         setAllSurveys(surveysExceptDeleted);
-        // Tietokantakutsu joka poistaa sen
+        
+    };
+
+    const addAnswers = (newAnswers, id) => {
+        const allAnswers = selectedSurvey.answers.concat(newAnswers);
+        dataContext.updateSurvey(allAnswers, id);
     };
 
     const getNewId = () => {
@@ -40,7 +45,7 @@ const SurveyContextProvider = (props) => {
     };
 
     return (
-        <SurveyContext.Provider value={{allSurveys, deleteSurvey, addSurvey, getNewId, selectedSurvey, setSelectedSurvey}}>
+        <SurveyContext.Provider value={{allSurveys, deleteSurvey, addSurvey, getNewId, selectedSurvey, setSelectedSurvey, addAnswers}}>
             {props ? props.children : (null)}
         </SurveyContext.Provider>
     );

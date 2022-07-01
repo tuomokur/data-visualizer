@@ -12,6 +12,9 @@ const Results = () => {
 
     const { selectedSurvey } = useSurveyContext();
     
+    //console.log(selectedSurvey);
+    
+    
     return (
         <>
             <Container fluid className="mt-5">
@@ -19,13 +22,13 @@ const Results = () => {
                     <Col md="auto" className="mx-5">
                         <Sidebar />
                     </Col>
-                    {(selectedSurvey === undefined) ? 
-                    <Col className="text-center"><h5>To see some results, choose a survey from the left sidebar.</h5></Col> :
+                    {selectedSurvey.surveyTitle ? 
                     <Col className="text-center resultsSheet">
                         <h5>Results of the <i>{selectedSurvey.surveyTitle}</i> survey</h5>
                         <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription}
                         </p>
-                    </Col>}
+                    </Col>
+                    : <Col className="text-center"><h5>To see some results, choose a survey from the left sidebar.</h5></Col>}
                 </Row>
             </Container>
         </>

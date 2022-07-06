@@ -15,13 +15,14 @@ const Results = () => {
     const surveyAnswers = selectedSurvey.answers ? selectedSurvey.answers.map(obj =>
         obj.answ) : (null); 
 
-    const questionType = selectedSurvey.questions ? selectedSurvey.questions.map(obj =>
-      obj.questionType) : (null); 
-  
-      console.log(surveyAnswers);
-      console.log(questionType);
+    const questionType = selectedSurvey.questions ? selectedSurvey.questions.map(obj => obj.questionType) : (null); 
+
+    const question = selectedSurvey.questions ? selectedSurvey.questions.map(obj => obj.questionTitle) : (null);
     
     
+    console.log(questionType);
+    console.log(question);
+
     // Different unique values from survey answers
     const answerLabels = [...new Set(surveyAnswers)];
 
@@ -55,42 +56,31 @@ const Results = () => {
         ],
       };
 
-    return (
-        <>
-            <Container fluid className="mt-5">
-                <Row className="mr-100">
-                    <Col xs={3} className="mx-5">
-                        <Sidebar />
-                    </Col>
-                    {(selectedSurvey === undefined) ? 
-                    <Col className="text-center mx-5"><h5>To see some results, choose a survey from the left sidebar.</h5></Col> :
-                    <Col className="text-center resultsSheet">
-                        <h5>Results of the <i>{selectedSurvey.surveyTitle}</i> survey</h5>
-                        <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription} </p>
-                        <Container>
-                          {/* {(selectedSurvey.questionType === 'freetext' ) ? 
-                            <Col className="text-center mx-5">
-                              <p>{freetextAnswers}</p>
-                            </Col> : <p>...results are presented here...</p> } */}
+return (
+  <>
+    <Container fluid className="mt-5">
+      <Row className="mr-100">
+        <Col md="auto" className="mx-5">
+          <Sidebar />
+        </Col>
+        {(selectedSurvey === undefined) ? 
+          <Col className="text-center mx-5"><h5>To see some results, choose a survey from the left sidebar.</h5></Col> :
+            <Col className="text-center resultsSheet">
+              <h5>Results of the <i>{selectedSurvey.surveyTitle}</i> survey</h5>
+              <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription} </p>
+              <Container>
+                {/* {surveyAnswers.map((renderAnsw) => <li>{renderAnsw}</li>)} */}
 
-                          {/* {(selectedSurvey.questionType === 'dropdown' ) ? 
-                          <Col className="text-center mx-5">
-                            <Pie data={data} />
-                          </Col> : <p>...results are presented here...</p>} */}
+                <p>{question} {surveyAnswers} </p>
+                
 
-                          <Pie data={data} />
+                  {/* <Pie data={data} /> */}
 
-
-                          {/* {(selectedSurvey.questionType === 'input' ) ? 
-                          <Col className="text-center mx-5">
-                            <Pie data={data} />
-                          </Col> : <p>...results are presented here...</p>} */}
-
-                        </Container>
-                    </Col>}
-                </Row>
-            </Container>
-        </>
+              </Container>
+            </Col>}
+          </Row>
+      </Container>
+  </>
     )
 };
 

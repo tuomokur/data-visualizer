@@ -14,6 +14,13 @@ const Results = () => {
 
     const surveyAnswers = selectedSurvey.answers ? selectedSurvey.answers.map(obj =>
         obj.answ) : (null); 
+
+    const questionType = selectedSurvey.questions ? selectedSurvey.questions.map(obj =>
+      obj.questionType) : (null); 
+  
+      console.log(surveyAnswers);
+      console.log(questionType);
+    
     
     // Different unique values from survey answers
     const answerLabels = [...new Set(surveyAnswers)];
@@ -61,8 +68,24 @@ const Results = () => {
                         <h5>Results of the <i>{selectedSurvey.surveyTitle}</i> survey</h5>
                         <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription} </p>
                         <Container>
+                          {/* {(selectedSurvey.questionType === 'freetext' ) ? 
+                            <Col className="text-center mx-5">
+                              <p>{freetextAnswers}</p>
+                            </Col> : <p>...results are presented here...</p> } */}
+
+                          {/* {(selectedSurvey.questionType === 'dropdown' ) ? 
+                          <Col className="text-center mx-5">
                             <Pie data={data} />
-                            {/* <p>{surveyAnswers}</p> */}
+                          </Col> : <p>...results are presented here...</p>} */}
+
+                          <Pie data={data} />
+
+
+                          {/* {(selectedSurvey.questionType === 'input' ) ? 
+                          <Col className="text-center mx-5">
+                            <Pie data={data} />
+                          </Col> : <p>...results are presented here...</p>} */}
+
                         </Container>
                     </Col>}
                 </Row>
@@ -72,3 +95,5 @@ const Results = () => {
 };
 
 export default Results;
+
+

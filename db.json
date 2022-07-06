@@ -261,8 +261,68 @@
           "questionId": 794
         }
       ],
+      "answers": [
+        {
+          "id": 151,
+          "type": "freetext",
+          "answ": "I think this is the best ever!"
+        },
+        {
+          "id": 617,
+          "type": "freetext",
+          "answ": "Yes, thank you. Its sweet."
+        },
+        {
+          "id": 133,
+          "type": "freetext",
+          "answ": "Allways before the milk and no stirring."
+        },
+        {
+          "id": 372,
+          "type": "freetext",
+          "answ": "Nobody knows but i think it might be very much..."
+        },
+        {
+          "id": 372,
+          "type": "freetext",
+          "answ": "Nobody knows but i think it might be very much..."
+        }
+      ],
+      "id": 6
+    },
+    {
+      "surveyTitle": "Freetext ",
+      "surveyDescription": "freetext answers",
+      "questions": [
+        {
+          "questionTitle": "Answer here",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 887
+        }
+      ],
       "answers": [],
-      "id": 17
+      "id": 7
+    },
+    {
+      "surveyTitle": "Freetext ",
+      "surveyDescription": "freetext answers",
+      "questions": [
+        {
+          "questionTitle": "Answer here",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 887
+        }
+      ],
+      "answers": [
+        {
+          "id": 887,
+          "type": "freetext",
+          "answ": "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ea, esse accusamus quos quod eum saepe sint iusto at veniam maiores numquam ex atque corporis nesciunt. Hic consequatur, soluta iure, vero quaerat inventore quos perferendis error laudantium amet, voluptate provident reprehenderit officiis. Cumque quasi magni ad? Velit quidem quae vel numquam!"
+        }
+      ],
+      "id": 8
     }
   ]
 }

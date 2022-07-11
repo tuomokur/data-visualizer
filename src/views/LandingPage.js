@@ -5,6 +5,8 @@ import './landingPage.css';
 import { ReactComponent as CreateLogo } from '../pictures/createLogo.svg';
 import { ReactComponent as AnswerLogo } from '../pictures/answerLogo.svg';
 import { ReactComponent as ResultsLogo } from '../pictures/resultsLogo.svg';
+import { ReactComponent as ModifyLogo } from '../pictures/modifyLogo.svg';
+
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
@@ -28,17 +30,19 @@ const LandingPage = () => {
 
       <Container className="mt-5">
         <Row className="justify-content-md-center">
+
           <Col xs={2} className="text-center mx-5 links">
             <Link className="mainLink" to="/create">
-              <h4 className="mb-4">Create a survey</h4>
+              <h4 className="mb-4">Create or modify survey</h4>
               <CreateLogo className="mb-4" />
-              <p>If you want to create a new survey, this is the place to go next.</p>
+              <p>If you want to create a new survey, modify an existing syrvey or delete survey, this is the place to go next.</p>
             </Link>
           </Col>
 
           <Col xs={2} className="text-center mx-5 links">
             <Link className="mainLink" to="/answer">
               <h4 className="mb-4">Answer a survey</h4>
+              <br />
               <AnswerLogo className="mb-4" />
               <p>Here you can find all surveys and give your answer.</p>
             </Link>
@@ -47,6 +51,7 @@ const LandingPage = () => {
           <Col xs={2} className="text-center mx-5 links">
             <Link className="mainLink" to="/results">
               <h4 className="mb-4">See the results</h4>
+              <br />
               <ResultsLogo className="mb-4" />
               <p>To view some results, go here!</p>
             </Link>

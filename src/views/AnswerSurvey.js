@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useSurveyContext } from '../contexts/SurveyContext.js';
 
+import "./results.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Container from 'react-bootstrap/Container';
@@ -17,10 +18,9 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 const AnswerSurvey = () => {
 
-    const { selectedSurvey, setSelectedSurvey } = useSurveyContext();
-    const { addAnswers } = useSurveyContext();
+    const { addAnswers, selectedSurvey, setSelectedSurvey } = useSurveyContext();
 
-    const [answerState, setAnswerState] = useState({})
+    const [answerState, setAnswerState] = useState({});
 
     const navigate = useNavigate();
 
@@ -30,8 +30,8 @@ const AnswerSurvey = () => {
 
     const handleDropdown = (question, option) => {
         setAnswerState({ ...answerState, [question]: option });
-    };
-
+    };  
+    
     const handleSave = () => {
         const surveyId = selectedSurvey.id;
 
@@ -41,10 +41,10 @@ const AnswerSurvey = () => {
     };
 
     let number = 0;
-    const listSurveyQuestions = selectedSurvey.questions ? selectedSurvey.questions.map((question) => {
+    const listSurveyQuestionsDOM = selectedSurvey.questions ? selectedSurvey.questions.map((question) => {
         number += 1;
         return (
-            <Form.Group className="mb-3" controlId="question">
+            <Form.Group key={question.questionid} className="mb-3" >
                 <Form.Label>{number}. {question.questionTitle}</Form.Label>
 
                 {(question.questionType === "freetext") ? <div>
@@ -56,39 +56,53 @@ const AnswerSurvey = () => {
                         <Button variant="light">{answerState.hasOwnProperty(question.questionId) ? answerState[question.questionId] : "Answer options"}</Button>
                         <Dropdown.Toggle variant="secondary" id="dropdown-split-basic" />
                         <Dropdown.Menu>
+
                             {question.dropdownQuestionOptions.map((option) => (
                                 <Dropdown.Item onClick={() => handleDropdown(question.questionId, option)}>{option}</Dropdown.Item>
                             ))}
                         </Dropdown.Menu>
                     </Dropdown>
                 </div> : (null)}
+                {(question.questionType === "multiple-choice") ?
+                    <div>
+                        {question.dropdownQuestionOptions.map((option) => (
+                            <div key={option} className="mb-3">
+                                <Form.Check
+                                    
+                                    type="radio"
+                                    id={option}
+                                    label={option}
+                                />
+                            </div>
+                        ))}
+
+                    </div> : (null)}
             </Form.Group>
         )
     }) : (null);
 
     return (
-        <>
-            <Container fluid className="mt-5 mb-5">
-                <Row className="mr-100">
-                    <Col md="auto" className="mx-5">
-                        <Sidebar />
+        <Container fluid className="mt-5 mb-5">
+            <Row>
+                <Col xs={3} className="mx-4">
+                    <Sidebar />
+                </Col>
+                {selectedSurvey.surveyTitle ?
+                    <Col xs={7} className="text-left resultsSheet">
+                        <div className="mb-5">
+                            <h4><i>{selectedSurvey.surveyTitle}</i></h4>
+                            <br />
+                            <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
+                        </div>
+                        <Form>
+                            {listSurveyQuestionsDOM}
+                            <button onClick={handleSave} type="submit">Submit Answers</button>
+                        </Form>
                     </Col>
-                    {selectedSurvey.surveyTitle ?
-                        <Col xs={7} className="text-left">
-                            <div className="mb-5">
-                                <h4><i>{selectedSurvey.surveyTitle}</i></h4>
-                                <br />
-                                <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
-                            </div>
-                            <Form>
-                                {listSurveyQuestions}
-                                <button onClick={handleSave} type="submit">Submit Answers</button>
-                            </Form>
-                        </Col>
-                        : <Col className="text-center"><h5>First, choose a survey from the left sidebar to give your answer.</h5></Col>}
-                </Row>
-            </Container>
-        </>
+                    : <Col ><h5>First, choose a survey from the left sidebar to give your answer.</h5></Col>}
+            </Row>
+        </Container>
+
     )
 };
 export default AnswerSurvey;

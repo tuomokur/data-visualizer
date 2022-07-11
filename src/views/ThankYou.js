@@ -29,7 +29,7 @@ const ThankYou = () => {
                             </Col>
                             <Col>
                                 <Link className="mainLink" to="/create">
-                                    <h5 className="mb-4">Create another survey</h5>
+                                    <h5 className="mb-4">Create or modify another survey</h5>
                                 </Link>
                             </Col>
                             <Col className="mb-5">

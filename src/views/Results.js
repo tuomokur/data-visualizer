@@ -11,15 +11,13 @@ import Row from 'react-bootstrap/Row';
 const Results = () => {
 
     const { selectedSurvey } = useSurveyContext();
-    
-    //console.log(selectedSurvey);
-    
+        
     
     return (
         <>
             <Container fluid className="mt-5">
                 <Row className="mr-100">
-                    <Col md="auto" className="mx-5">
+                    <Col xs={3} className="mx-5">
                         <Sidebar />
                     </Col>
                     {selectedSurvey.surveyTitle ? 

@@ -27,12 +27,16 @@ const SurveyContextProvider = (props) => {
     const deleteSurvey = (id) => {
         const surveysExceptDeleted = allSurveys.filter(survey => survey.id !== id);
         setAllSurveys(surveysExceptDeleted);
-        
+        dataContext.removeSurvey(id);
     };
 
     const addAnswers = (newAnswers, id) => {
         const allAnswers = selectedSurvey.answers.concat(newAnswers);
-        dataContext.updateSurvey(allAnswers, id);
+        dataContext.updateSurveyAnswers(allAnswers, id);     
+    };
+
+    const modifiedSurvey = (newSurvey, id) => {
+        dataContext.modifySurvey(newSurvey, id)
     };
 
     const getNewId = () => {
@@ -45,7 +49,7 @@ const SurveyContextProvider = (props) => {
     };
 
     return (
-        <SurveyContext.Provider value={{allSurveys, deleteSurvey, addSurvey, getNewId, selectedSurvey, setSelectedSurvey, addAnswers}}>
+        <SurveyContext.Provider value={{allSurveys, deleteSurvey, addSurvey, getNewId, selectedSurvey, setSelectedSurvey, addAnswers, modifiedSurvey}}>
             {props ? props.children : (null)}
         </SurveyContext.Provider>
     );

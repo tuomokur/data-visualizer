@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 
 const Header = () => {
     return (
-        <Navbar bg="secondary" variant="dark" style={{ backgroundColor: "#c9c8b9" }}>
+        <Navbar bg="secondary" variant="dark">
             <Container>
                 <Navbar.Brand>Visualizing survey data</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

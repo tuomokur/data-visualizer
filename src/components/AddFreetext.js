@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 
 const AddFreetext = (props) => {
@@ -29,7 +30,9 @@ const AddFreetext = (props) => {
                         Answer type will be a free text multi-line answer.
                     </Form.Text>
                 </Form.Group>
-                <Button variant="primary" type="submit">Save question</Button>
+                <Stack className="text-center" style={{ marginRight: "200px", marginLeft: "200px" }}>
+                <Button variant="outline-dark" type="submit">Save new question</Button>
+                </Stack>
             </Form>
         </>
     )

@@ -31,7 +31,7 @@ const Sidebar = (props) => {
     };
 
     const surveyListDOM = allSurveys.map(survey =>
-        <ListGroup as="ol" key={survey.id} variant="flush">
+        <ListGroup key={survey.id} as="ol" variant="flush">
             <ListGroup.Item
                 as="li"
                 className="d-flex justify-content-between align-items-start"
@@ -73,11 +73,9 @@ const Sidebar = (props) => {
                     <Button variant="danger" onClick={() => handleDelete(selectedSurvey)}> Yes, delete!</Button>
                     <Button variant="secondary" onClick={() => setShow(false)}>No, go back</Button>
                     <Button variant="secondary" onClick={() => setShow(false)}>Close</Button>
-
                 </Modal.Footer>
             </Modal>
         </div>
-
     )
 }
 export default Sidebar;

@@ -6,12 +6,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 
 const ThankYou = () => {
 
     const location = useLocation();
-    
+
     return (
         <>
             <Container className="mt-5">
@@ -35,7 +36,6 @@ const ThankYou = () => {
                             <Col className="mb-5">
                                 <Link className="mainLink" to="/results">
                                     <h5 className="mb-4">See some results</h5>
-
                                 </Link>
                             </Col>
                         </Row>

@@ -25,7 +25,8 @@ const AddFreetext = (props) => {
                     <Form.Label>Free text question:</Form.Label>
                     <Form.Control onChange={handleInput}
                         value={input}
-                        placeholder="Write your question here and click 'Save'" />
+                        placeholder="Write your question here and click 'Save'" 
+                        required />
                     <Form.Text className="text-muted">
                         Answer type will be a free text multi-line answer.
                     </Form.Text>

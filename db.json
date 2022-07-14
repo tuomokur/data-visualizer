@@ -1,112 +1,438 @@
 {
   "surveys": [
     {
-      "surveyTitle": "MUUTETTU OTSIKKO",
-      "surveyDescription": "Tässä kyselyssä on monenlaisia kysymysiä",
+      "surveyTitle": "What to do in the summer?",
+      "surveyDescription": "This survey is collecting data on what people would like to do during summer.",
       "questions": [
         {
-          "questionTitle": "MUUTETTU DROPDOWN",
+          "questionTitle": "Which of the the following would you like to do the most?",
           "dropdownQuestionOptions": [
-            "MUUTETTU VAIHTOEHTO",
-            "vaihtoehto 2",
-            "vaihtoehto 3",
-            "vaihtoehto 4",
-            "vaihtoehto xy"
+            "Travel",
+            "Beach and swimming",
+            "Coding",
+            "Diving"
           ],
           "questionType": "dropdown",
-          "questionId": 701
+          "questionId": 202
         },
         {
-          "questionTitle": "Dropdown valinta 1",
+          "questionTitle": "Write shortly about your favorite summer memory.",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 155
+        },
+        {
+          "questionTitle": "What did you do last summer?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 150
+        },
+        {
+          "questionTitle": "The best things in summer?",
           "dropdownQuestionOptions": [
-            "punainen",
-            "VAALEANsininen",
-            "vihreä",
-            "keltainen"
+            "Sun",
+            "Ice cream",
+            "Light",
+            "Mosquitoes"
           ],
-          "questionType": "dropdown",
-          "questionId": 551
-        },
-        {
-          "questionTitle": "Vapaakommentti ",
-          "dropdownQuestionOptions": "",
-          "questionType": "freetext",
-          "questionId": 878
-        },
-        {
-          "questionTitle": "Vapaakommentti 2",
-          "dropdownQuestionOptions": "",
-          "questionType": "freetext",
-          "questionId": 636
+          "questionType": "multiple-choice",
+          "questionId": 319
         }
       ],
       "answers": [
         {
-          "551": "sininen",
-          "636": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptates, assumenda reiciendis culpa eius perferendis explicabo fuga ipsam natus labore corrupti eum incidunt atque vitae distinctio molestiae laborum modi illum error, enim expedita dolores. Exercitationem possimus atque deserunt suscipit temporibus quos maiores, error vero quas animi molestias, odio laudantium sed ab dicta. Voluptates, corporis! Magnam debitis impedit optio doloremque temporibus error vero fugiat, earum maiores corporis atque fuga eum laborum officiis odit iste autem similique placeat! Dignissimos eaque adipisci, optio dolores impedit est delectus corrupti corporis nulla numquam quidem quos cumque eos incidunt tempora hic minus dolore quis illo explicabo maxime.",
-          "701": "vaihtoehto 2",
-          "878": " Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, voluptas."
+          "150": "jhkkjhjkhgkjhg",
+          "155": "fggfgfgfgfchgcf",
+          "202": "Coding"
         },
         {
-          "551": "punainen",
-          "636": "Olen vastaus Olen vastausOlen vastausOlen vastausOlen vastausOlen vastaus",
-          "701": "vaihtoehto 1",
-          "878": "Tässä vastaus"
+          "150": ",m,n.,mn,mnm,",
+          "155": "lkkjkkhkljhjl",
+          "202": "Travel"
         },
         {
-          "551": "keltainen",
-          "636": "joo joo joo joo joo joo joo joo joo joojoo joov",
-          "701": "vaihtoehto 4",
-          "878": "Olen vastaus Olen vastaus Olen vastaus Olen vastaus Olen vastaus"
+          "150": ".jbmnbmnb,m",
+          "155": "mjbljblj",
+          "202": "Diving"
         },
         {
-          "551": "VAALEANsininen",
-          "636": "ok okok ok ok ok ok ok ok ok ok ok ",
-          "701": "vaihtoehto xy",
-          "878": "jesjes jesjes jesjes jesjes jesjes jesjes jesjes "
+          "150": "rrrrrrrrrrrrrrrrr",
+          "155": "qqqqqqqqqqq",
+          "202": "Beach and swimming"
         },
         {
-          "551": "vihreä",
-          "636": "bggbgbg",
-          "701": "MUUTETTU VAIHTOEHTO",
-          "878": "nhnh"
+          "150": "cccccccccccccccc",
+          "155": "mmmmmmmmmmm",
+          "202": "Diving"
+        },
+        {
+          "150": "äääääääääää",
+          "155": "åååååååååååå",
+          "202": "Travel"
+        },
+        {
+          "150": "akvaario",
+          "155": "televisio",
+          "202": "Diving"
+        },
+        {
+          "150": "tuomari",
+          "155": "maalivahti",
+          "202": "Beach and swimming"
+        },
+        {
+          "150": "kjkjljjj",
+          "155": "jjjkhgkjgkj",
+          "202": "Travel"
+        },
+        {
+          "150": "mn,n,n",
+          "155": ",jhjhkgj",
+          "202": "Travel"
+        },
+        {
+          "150": "ggg",
+          "155": "ööö",
+          "202": "Diving"
+        },
+        {
+          "150": ",mbmb,mnb,m",
+          "155": "kjlkjhklj",
+          "202": "Diving"
+        },
+        {
+          "150": "mnm,nbm,nb,mn",
+          "155": "m,nb,mnbn",
+          "202": "Coding",
+          "319": [
+            "Sun",
+            "Ice cream",
+            "Light",
+            "Mosquitoes"
+          ]
+        },
+        {
+          "150": ",.mn.,mn",
+          "155": ".kjkj",
+          "202": "Travel"
+        },
+        {
+          "150": ".nmn.,mn.,mn",
+          "155": "kjklhlkjhlkj",
+          "202": "Travel",
+          "undefined": [
+            "Sun"
+          ]
+        },
+        {
+          "150": "bmnbmbm,n",
+          "155": "jljlkbkbljkb",
+          "202": "Travel",
+          "undefined": [
+            "Sun"
+          ]
         }
       ],
       "id": 1
     },
     {
-      "surveyTitle": "Mikä on suosikki orkesterisi?",
-      "surveyDescription": "Kerro mikä on suosikkisi.",
+      "surveyTitle": "Favorite coding language",
+      "surveyDescription": "We are studying which coding languages people like the most.",
       "questions": [
         {
-          "questionTitle": "Orkesteri",
+          "questionTitle": "Which was the first language you learned?",
           "dropdownQuestionOptions": [
-            "Popeda",
-            "Abba",
-            "Immortal"
+            "Java",
+            "JavaScript",
+            "Python",
+            "C#"
           ],
           "questionType": "dropdown",
-          "questionId": 105
+          "questionId": 75
+        },
+        {
+          "questionTitle": "Which language or languages you are using at the moment?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 743
         }
       ],
       "answers": [
         {
-          "105": "Immortal"
+          "75": "Python",
+          "743": "kkjhgjkhghf"
         },
         {
-          "105": "Popeda"
+          "75": "JavaScript",
+          "743": "jlbm.mn.,mn.mb,mnb,mnb,mnb,mnb,mn"
         },
         {
-          "105": "Abba"
-        },
-        {
-          "105": "Immortal"
-        },
-        {
-          "105": "Immortal"
+          "75": "Java",
+          "743": "-.,m.,m-.,m-"
         }
       ],
       "id": 2
-    }
+    },
+    {
+      "surveyTitle": "Favorite dish",
+      "surveyDescription": "tässä kuvaus",
+      "questions": [
+        {
+          "questionTitle": "What would you choose?",
+          "dropdownQuestionOptions": [
+            "Pizza",
+            "Chinese",
+            "Italian",
+            "Indian"
+          ],
+          "questionType": "dropdown",
+          "questionId": 24
+        },
+        {
+          "questionTitle": "What is your favorite dish?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 892
+        },
+        {
+          "questionTitle": "When was the last time you have been in a restaurant?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 758
+        }
+      ],
+      "answers": [
+        {
+          "24": "Indian",
+          "892": "mnvhjyuyryut"
+        },
+        {
+          "24": "Pizza",
+          "892": "lknöknknölknölknkn"
+        },
+        {
+          "24": "Indian",
+          "758": "kjkjjgjhghjghjgj",
+          "892": "njkkjkjhkjhkjhkj"
+        }
+      ],
+      "id": 3
+    },
+    {
+      "surveyTitle": "Basics of JavaScript - Exam",
+      "surveyDescription": "In this exam you have ten questions with dropdown answers and ten free text questions...",
+      "questions": [
+        {
+          "questionTitle": "How to define a variable within a loop?",
+          "dropdownQuestionOptions": [
+            "const",
+            "let",
+            "var"
+          ],
+          "questionType": "dropdown",
+          "questionId": 857
+        },
+        {
+          "questionTitle": "jhgggfdtyriyf",
+          "dropdownQuestionOptions": [
+            "aaaaaaaaaa",
+            "bbbbbbbbbbbbb",
+            "ccccccccccc"
+          ],
+          "questionType": "dropdown",
+          "questionId": 759
+        },
+        {
+          "questionTitle": "What is the main difference between an object and an array?",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 964
+        }
+      ],
+      "answers": [
+        {
+          "759": "bbbbbbbbbbbbb",
+          "857": "let",
+          "964": ",jhbkjhkhhvjhgghjhg"
+        }
+      ],
+      "id": 4
+    },
+    {
+      "surveyTitle": "New Survey muokattu vielä kerran",
+      "surveyDescription": "this is a new survey Muokattu survey",
+      "questions": [
+        {
+          "questionTitle": "kysymys pitää olla",
+          "dropdownQuestionOptions": [
+            "ii",
+            "gg",
+            "pp"
+          ],
+          "questionType": "dropdown",
+          "questionId": 702
+        },
+        {
+          "questionTitle": "ja tänne uusi kysymys vielä",
+          "dropdownQuestionOptions": [
+            "jj",
+            "pp",
+            "mm"
+          ],
+          "questionType": "multiple-choice",
+          "questionId": 246
+        },
+        {
+          "questionTitle": "and one new freetext",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 111
+        }
+      ],
+      "answers": [],
+      "id": 15
+    },
+    {
+      "surveyTitle": "uusi otsikko ja taas uusi ja vielä yksi uusi",
+      "surveyDescription": "kuvaus tänne",
+      "questions": [
+        {
+          "questionTitle": "dropdown",
+          "dropdownQuestionOptions": [
+            "00",
+            "99",
+            "88",
+            "100"
+          ],
+          "questionType": "dropdown",
+          "questionId": 906
+        },
+        {
+          "questionTitle": "multiple",
+          "dropdownQuestionOptions": [
+            "gg",
+            "mm",
+            "pp"
+          ],
+          "questionType": "multiple-choice",
+          "questionId": 400
+        },
+        {
+          "questionTitle": "kerro tarina",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 794
+        }
+      ],
+      "answers": [
+        {
+          "400": [
+            "gg"
+          ],
+          "794": ".kknn,.mn,.mn,.m",
+          "906": "100",
+          "undefined": []
+        },
+        {
+          "400": [
+            "gg"
+          ],
+          "794": "jbjjjjhlkjhlkjhlkj",
+          "906": "100"
+        },
+        {
+          "400": [
+            "gg",
+            "mm"
+          ],
+          "794": "kjkjhlkjhlkjhlkj",
+          "906": "00"
+        },
+        {
+          "794": "ölkklkljkljö",
+          "906": "100"
+        }
+      ],
+      "id": 17
+    },
+    {
+      "surveyTitle": "Testataan",
+      "surveyDescription": "kuvaus",
+      "questions": [
+        {
+          "questionTitle": "drop1",
+          "dropdownQuestionOptions": [
+            "1drop",
+            "2drop",
+            "3drop"
+          ],
+          "questionType": "dropdown",
+          "questionId": 295
+        },
+        {
+          "questionTitle": "drop2",
+          "dropdownQuestionOptions": [
+            "kaksidrop",
+            "yksidrop",
+            "kolmedrop"
+          ],
+          "questionType": "dropdown",
+          "questionId": 445
+        },
+        {
+          "questionTitle": "freetextkysymys",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 248
+        },
+        {
+          "questionTitle": "toinenfreetextkysymys",
+          "dropdownQuestionOptions": "",
+          "questionType": "freetext",
+          "questionId": 606
+        }
+      ],
+      "answers": [
+        {
+          "248": "kjkjjkjhgjhgk",
+          "295": "1drop",
+          "445": "yksidrop"
+        },
+        {
+          "248": "kkkkkkkkkk",
+          "295": "1drop",
+          "445": "kolmedrop"
+        },
+        {
+          "248": "000000000000000",
+          "295": "2drop",
+          "445": "yksidrop"
+        },
+        {
+          "248": "jjjjjjjjjjjjjjjjjj",
+          "295": "2drop",
+          "445": "kolmedrop"
+        },
+        {
+          "248": "pppppppppppppp",
+          "295": "3drop",
+          "445": "kolmedrop"
+        },
+        {
+          "248": "vastaus1",
+          "295": "1drop",
+          "445": "yksidrop",
+          "606": "vastaus2"
+        },
+        {
+          "248": "vastaus9",
+          "295": "1drop",
+          "445": "yksidrop",
+          "606": "vastaus22"
+        }
+      ],
+      "id": 18
+    },
+    
   ]
 }

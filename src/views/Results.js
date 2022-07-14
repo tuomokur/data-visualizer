@@ -9,6 +9,7 @@ import Freetext from '../components/Freetext.js';
 import { useSurveyContext } from '../contexts/SurveyContext.js';
 import "./results.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
@@ -94,13 +95,10 @@ const Results = () => {
         </>
     )
 };
- 
+
 export default Results;
- 
- 
- 
- 
- 
-// jatkokehitys
-// - vastausmäärät results sivulla
-// - mitä tapahtuu jo vastatuille arvoille jos olemassa olevaa surveytä muutetaan?
+
+
+
+
+

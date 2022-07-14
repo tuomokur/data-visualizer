@@ -21,6 +21,8 @@ const AnswerSurvey = () => {
     const { addAnswers, selectedSurvey, setSelectedSurvey } = useSurveyContext();
 
     const [answerState, setAnswerState] = useState({});
+    const [checkOptions, setCheckOptions] = useState({ options: [], response: [] });
+    //const [questionId, setQuestionId] = useState();
 
     const navigate = useNavigate();
 
@@ -30,11 +32,36 @@ const AnswerSurvey = () => {
 
     const handleDropdown = (question, option) => {
         setAnswerState({ ...answerState, [question]: option });
-    };  
-    
-    const handleSave = () => {
-        const surveyId = selectedSurvey.id;
+    };
 
+    const handleOptionChange = (question, event) => {
+        //event.preventDefault();
+        //setQuestionId(question.questionId)
+        
+        const { value, checked } = event.target;
+        const { options } = checkOptions;
+
+        if (checked) {
+            setCheckOptions({ 
+                options: [...options, value],
+                response: [...options, value],
+            });
+        }
+        else {
+            setCheckOptions({
+                options: options.filter(opt => opt !== value),
+                response: options.filter(opt => opt !== value),
+            });
+        };  
+        setAnswerState({ ...answerState, [question.questionId]: checkOptions.response });    
+    };       
+    console.log(checkOptions.response); 
+
+    const handleSave = (event) => {
+        event.preventDefault();
+        const surveyId = selectedSurvey.id;      
+        console.log(answerState);
+            
         addAnswers(answerState, surveyId);
         setSelectedSurvey({});
         navigate("/thanks", { replace: true, state: `Thank you for answering the ${selectedSurvey.surveyTitle} survey! Your answers have now been saved succesfully. ` });
@@ -53,7 +80,7 @@ const AnswerSurvey = () => {
 
                 {(question.questionType === "dropdown") ? <div>
                     <Dropdown className="mb-2" as={ButtonGroup}>
-                        <Button variant="light">{answerState.hasOwnProperty(question.questionId) ? answerState[question.questionId] : "Answer options"}</Button>
+                        <Button variant="light" type="button">{answerState.hasOwnProperty(question.questionId) ? answerState[question.questionId] : "Answer options"}</Button>
                         <Dropdown.Toggle variant="secondary" id="dropdown-split-basic" />
                         <Dropdown.Menu>
 
@@ -65,24 +92,25 @@ const AnswerSurvey = () => {
                 </div> : (null)}
                 {(question.questionType === "multiple-choice") ?
                     <div>
-                        {question.dropdownQuestionOptions.map((option) => (
-                            <div key={option} className="mb-3">
+                        {question.dropdownQuestionOptions.map(opt => (
+                            <div key={opt} className="mx-4">
                                 <Form.Check
-                                    
-                                    type="radio"
-                                    id={option}
-                                    label={option}
+                                    type="checkbox"
+                                    name="option"
+                                    value={opt}
+                                    id={opt}
+                                    label={opt}
+                                    onChange={(event) => handleOptionChange(question, event)}                            
                                 />
                             </div>
                         ))}
-
                     </div> : (null)}
             </Form.Group>
         )
     }) : (null);
 
     return (
-        <Container fluid className="mt-5 mb-5">
+        <Container fluid className="mt-5 mb-5"> 
             <Row>
                 <Col xs={3} className="mx-4">
                     <Sidebar />

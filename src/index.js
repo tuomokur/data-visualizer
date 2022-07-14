@@ -13,10 +13,8 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
     <DataContextProvider>
-      <SurveyContextProvider>
-        
+      <SurveyContextProvider>  
         <App />
-      
       </SurveyContextProvider>
       </DataContextProvider>
     </BrowserRouter>

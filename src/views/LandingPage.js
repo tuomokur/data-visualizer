@@ -21,7 +21,7 @@ const LandingPage = () => {
     <div>
       <Container className="mt-5">
         <Row className="text-center text-md-right">
-          <h2>Let´s visualize!</h2>
+          <h2>Let's visualize!</h2>
         </Row>
         <Row className="text-center text-md-right">
           <h4>Create a survey, answer surveys and visualize your survey data.</h4>

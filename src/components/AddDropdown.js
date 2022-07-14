@@ -7,27 +7,28 @@ import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
 
 import React, { useState } from "react";
-
+ 
 const AddDropdown = (props) => {
-
+ 
     const [questionInput, setQuestionInput] = useState("");
     const [dropdownOption, setDropdownOption] = useState("");
     const [dropdownArray, setDropdownArray] = useState([]);
-
+ 
     const handleQuestionInput = (event) => {
         setQuestionInput(event.target.value);
     };
-
+    
+ 
     const handleDropdownOption = (event) => {
         setDropdownOption(event.target.value);
     };
-
+   
     const saveDropdown = (event) => {
         const dropdownInput = dropdownArray.concat(dropdownOption);
         setDropdownArray(dropdownInput);
         event.target.form.elements.option.value = "";
     };
-
+ 
     const handleSubmit = (event) => {
         event.preventDefault();
         props.createQuestion(questionInput, dropdownArray);

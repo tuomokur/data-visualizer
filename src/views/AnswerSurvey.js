@@ -48,8 +48,8 @@ const AnswerSurvey = () => {
                 <Form.Label>{number}. {question.questionTitle}</Form.Label>
 
                 {(question.questionType === "freetext") ? <div>
-                    <Form.Control onChange={(event) => handleInput(question.questionId, event)} placeholder="Write your answer here" />
-                    <Form.Text className="text-muted"></Form.Text></div> : (null)}
+                    <Form.Control as="textarea" onChange={(event) => handleInput(question.questionId, event)} placeholder="Write your answer here" />
+                    </div> : (null)}
 
                 {(question.questionType === "dropdown") ? <div>
                     <Dropdown className="mb-2" as={ButtonGroup}>

@@ -3,13 +3,17 @@ import {Chart as ChartJS,CategoryScale,LinearScale,BarElement,Title,Tooltip,Lege
 import { Bar } from 'react-chartjs-2';
 ChartJS.register(CategoryScale,LinearScale,BarElement,Title,Tooltip,Legend);
   
-const BarChart = () => {
+const BarChart = (props) => {
     const { selectedSurvey } = useSurveyContext();
 
-    const surveyAnswers = selectedSurvey.answers ? selectedSurvey.answers.map(obj =>
-        obj.answ) : (null); 
+    // const surveyAnswers = selectedSurvey.answers ? selectedSurvey.answers.map(obj =>
+    //     obj.answ) : (null); 
+
+    const surveyAnswers = selectedSurvey.answers ? selectedSurvey.answers.map(a => a[props.question]) : (null);
     
     const answerLabels = [...new Set(surveyAnswers)];
+
+
     
     const answerCounts = answerLabels.map(labels => {
         const filtered = surveyAnswers.filter(answer => answer === labels);

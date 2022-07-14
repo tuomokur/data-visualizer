@@ -30,18 +30,13 @@ const SurveyContextProvider = (props) => {
         dataContext.removeSurvey(id);
     };
 
-    const addAnswers = (newAnswers, id) => {
-        const allAnswers = selectedSurvey.answers.concat(newAnswers);
-        dataContext.updateSurveyAnswers(allAnswers, id);     
-    };
-
     const modifiedSurvey = (newSurvey, id) => {
         dataContext.modifySurvey(newSurvey, id)
     };
  
     const addAnswers = (newAnswers, id) => {
         const allAnswers = selectedSurvey.answers.concat(newAnswers);
-        dataContext.updateSurvey(allAnswers, id);
+        dataContext.updateSurveyAnswers(allAnswers, id);
     };
  
     const getNewId = () => {

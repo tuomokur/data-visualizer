@@ -21,6 +21,7 @@ const AnswerSurvey = () => {
     const { addAnswers, selectedSurvey, setSelectedSurvey } = useSurveyContext();
 
     const [answerState, setAnswerState] = useState({});
+    const [checkOptions, setCheckOptions] = useState({ options: [] });
 
     const navigate = useNavigate();
 
@@ -30,9 +31,32 @@ const AnswerSurvey = () => {
 
     const handleDropdown = (question, option) => {
         setAnswerState({ ...answerState, [question]: option });
-    };  
+    };
     
-    const handleSave = () => {
+    const handleMultipleChoices = (question, event) => {
+
+        const { value, checked } = event.target;
+        const { options } = checkOptions;
+
+        if (checked) {
+            setCheckOptions({
+                options: [...options, { id: question.questionId, opt: value }]
+                //options: [...options, value]
+            });
+        }
+        //Tämä ei toimi vielä oikein, error: opt.filter is not a function
+        else {
+            
+            setCheckOptions({
+                
+                options: options.map(opt => {const arr = opt.filter(item => item[1].opt !== value); return arr})
+                //options: [options.filter(opt => opt !== value)]
+            });
+        };
+    };    
+
+    const handleSave = (event) => {
+        event.preventDefault();
         const surveyId = selectedSurvey.id;
 
         addAnswers(answerState, surveyId);
@@ -44,16 +68,16 @@ const AnswerSurvey = () => {
     const listSurveyQuestionsDOM = selectedSurvey.questions ? selectedSurvey.questions.map((question) => {
         number += 1;
         return (
-            <Form.Group key={question.questionid} className="mb-3" >
+            <Form.Group key={question.questionid} className="mb-3" style={{ borderStyle: "solid", borderColor: "#c9c8b9", borderWidth: "4px", padding: "10px" }} >
                 <Form.Label>{number}. {question.questionTitle}</Form.Label>
 
                 {(question.questionType === "freetext") ? <div>
                     <Form.Control as="textarea" onChange={(event) => handleInput(question.questionId, event)} placeholder="Write your answer here" />
-                    </div> : (null)}
+                </div> : (null)}
 
                 {(question.questionType === "dropdown") ? <div>
                     <Dropdown className="mb-2" as={ButtonGroup}>
-                        <Button variant="light">{answerState.hasOwnProperty(question.questionId) ? answerState[question.questionId] : "Answer options"}</Button>
+                        <Button variant="light" type="button">{answerState.hasOwnProperty(question.questionId) ? answerState[question.questionId] : "Answer options"}</Button>
                         <Dropdown.Toggle variant="secondary" id="dropdown-split-basic" />
                         <Dropdown.Menu>
 
@@ -65,38 +89,39 @@ const AnswerSurvey = () => {
                 </div> : (null)}
                 {(question.questionType === "multiple-choice") ?
                     <div>
-                        {question.dropdownQuestionOptions.map((option) => (
-                            <div key={option} className="mb-3">
+                        {question.dropdownQuestionOptions.map(opt => (
+                            <div key={opt} className="mx-4">
                                 <Form.Check
-                                    
-                                    type="radio"
-                                    id={option}
-                                    label={option}
+                                    type="checkbox"
+                                    name="option"
+                                    value={opt}
+                                    id={opt}
+                                    label={opt}
+                                    onChange={(event) => handleMultipleChoices(question, event)}
                                 />
                             </div>
                         ))}
-
                     </div> : (null)}
             </Form.Group>
         )
     }) : (null);
 
     return (
-        <Container fluid className="mt-5 mb-5">
+        <Container fluid className="my-5">
             <Row>
                 <Col xs={3} className="mx-4">
                     <Sidebar />
                 </Col>
                 {selectedSurvey.surveyTitle ?
                     <Col xs={7} className="text-left resultsSheet">
-                        <div className="mb-5">
-                            <h4><i>{selectedSurvey.surveyTitle}</i></h4>
-                            <br />
-                            <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
+                        <div>
+                            <h4 className="text-center mb-3"><i>{selectedSurvey.surveyTitle}</i></h4>
+                            <p className="text-center mb-4"><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
                         </div>
+                        <hr style={{ background: "#c9c8b9", height: "8px" }} />
                         <Form>
                             {listSurveyQuestionsDOM}
-                            <button onClick={handleSave} type="submit">Submit Answers</button>
+                            <Button onClick={handleSave} variant="outline-dark" type="submit" style={{ width: "100%"}}>Submit Answers</Button>
                         </Form>
                     </Col>
                     : <Col ><h5>First, choose a survey from the left sidebar to give your answer.</h5></Col>}

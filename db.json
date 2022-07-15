@@ -117,20 +117,9 @@
           "202": "Travel"
         },
         {
-          "150": ".nmn.,mn.,mn",
-          "155": "kjklhlkjhlkj",
-          "202": "Travel",
-          "undefined": [
-            "Sun"
-          ]
-        },
-        {
-          "150": "bmnbmbm,n",
-          "155": "jljlkbkbljkb",
-          "202": "Travel",
-          "undefined": [
-            "Sun"
-          ]
+          "150": "ölkölkjlköj",
+          "155": "öljölkjöklj",
+          "202": "Travel"
         }
       ],
       "id": 1
@@ -169,6 +158,26 @@
         {
           "75": "Java",
           "743": "-.,m.,m-.,m-"
+        },
+        {
+          "75": "C#",
+          "743": "kjkjklj"
+        },
+        {
+          "75": "Python",
+          "743": "knknnmn."
+        },
+        {
+          "75": "Java",
+          "743": "mnb,mnbmb"
+        },
+        {
+          "75": "Python",
+          "743": "mnm,nm,n"
+        },
+        {
+          "75": "Python",
+          "743": "mnbmnb,mn"
         }
       ],
       "id": 2
@@ -214,6 +223,26 @@
           "24": "Indian",
           "758": "kjkjjgjhghjghjgj",
           "892": "njkkjkjhkjhkjhkj"
+        },
+        {
+          "24": "Chinese",
+          "758": "kn,n,mn,.mn.m",
+          "892": ",m,m,.mn"
+        },
+        {
+          "24": "Indian",
+          "758": ",mn,m.n.,m",
+          "892": ",m.,mn.,m"
+        },
+        {
+          "24": "Italian",
+          "758": ",m,m.m",
+          "892": ",n.,mn,m."
+        },
+        {
+          "24": "Pizza",
+          "758": "m .m .",
+          "892": ",.mn,m."
         }
       ],
       "id": 3
@@ -259,103 +288,6 @@
       "id": 4
     },
     {
-      "surveyTitle": "New Survey muokattu vielä kerran",
-      "surveyDescription": "this is a new survey Muokattu survey",
-      "questions": [
-        {
-          "questionTitle": "kysymys pitää olla",
-          "dropdownQuestionOptions": [
-            "ii",
-            "gg",
-            "pp"
-          ],
-          "questionType": "dropdown",
-          "questionId": 702
-        },
-        {
-          "questionTitle": "ja tänne uusi kysymys vielä",
-          "dropdownQuestionOptions": [
-            "jj",
-            "pp",
-            "mm"
-          ],
-          "questionType": "multiple-choice",
-          "questionId": 246
-        },
-        {
-          "questionTitle": "and one new freetext",
-          "dropdownQuestionOptions": "",
-          "questionType": "freetext",
-          "questionId": 111
-        }
-      ],
-      "answers": [],
-      "id": 15
-    },
-    {
-      "surveyTitle": "uusi otsikko ja taas uusi ja vielä yksi uusi",
-      "surveyDescription": "kuvaus tänne",
-      "questions": [
-        {
-          "questionTitle": "dropdown",
-          "dropdownQuestionOptions": [
-            "00",
-            "99",
-            "88",
-            "100"
-          ],
-          "questionType": "dropdown",
-          "questionId": 906
-        },
-        {
-          "questionTitle": "multiple",
-          "dropdownQuestionOptions": [
-            "gg",
-            "mm",
-            "pp"
-          ],
-          "questionType": "multiple-choice",
-          "questionId": 400
-        },
-        {
-          "questionTitle": "kerro tarina",
-          "dropdownQuestionOptions": "",
-          "questionType": "freetext",
-          "questionId": 794
-        }
-      ],
-      "answers": [
-        {
-          "400": [
-            "gg"
-          ],
-          "794": ".kknn,.mn,.mn,.m",
-          "906": "100",
-          "undefined": []
-        },
-        {
-          "400": [
-            "gg"
-          ],
-          "794": "jbjjjjhlkjhlkjhlkj",
-          "906": "100"
-        },
-        {
-          "400": [
-            "gg",
-            "mm"
-          ],
-          "794": "kjkjhlkjhlkjhlkj",
-          "906": "00"
-        },
-        {
-          "794": "ölkklkljkljö",
-          "906": "100"
-        }
-      ],
-      "id": 17
-    },
-    {
       "surveyTitle": "Testataan",
       "surveyDescription": "kuvaus",
       "questions": [
@@ -384,12 +316,6 @@
           "dropdownQuestionOptions": "",
           "questionType": "freetext",
           "questionId": 248
-        },
-        {
-          "questionTitle": "toinenfreetextkysymys",
-          "dropdownQuestionOptions": "",
-          "questionType": "freetext",
-          "questionId": 606
         }
       ],
       "answers": [
@@ -421,18 +347,15 @@
         {
           "248": "vastaus1",
           "295": "1drop",
-          "445": "yksidrop",
-          "606": "vastaus2"
+          "445": "yksidrop"
         },
         {
           "248": "vastaus9",
           "295": "1drop",
-          "445": "yksidrop",
-          "606": "vastaus22"
+          "445": "yksidrop"
         }
       ],
       "id": 18
-    },
-    
+    }
   ]
 }

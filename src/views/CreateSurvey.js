@@ -39,6 +39,7 @@ const CreateSurvey = () => {
     const [questionToModify, setQuestionToModify] = useState();
     const [optionIsValid, setOptionIsValid] = useState(true);
     const [titleIsValid, setTitleIsValid] = useState(true);
+    const [surveyTitleValid, setSurveyTitleValid] = useState(true);
 
     const [newSurvey, setNewSurvey] = useState({
         surveyTitle: "",
@@ -110,10 +111,15 @@ const CreateSurvey = () => {
     };
 
     const removeQuestion = (question) => {
-        const remainingQuestions = newSurvey.questions.filter((item) => item.questionId !== question.questionId);
+        const remainingQuestions = newSurvey.questions.filter(q => q.questionId !== question.questionId);
+        const remainingAnswers = newSurvey.answers.map(answ => {
+            const { [question.questionId]: removedProperty, ...answRest } = answ;
+            return answRest;
+        });
         setNewSurvey({
             ...newSurvey,
-            questions: remainingQuestions
+            questions: remainingQuestions,
+            answers: remainingAnswers
         });
     };
 
@@ -192,9 +198,12 @@ const CreateSurvey = () => {
     };
 
     const addNewSurvey = (newSurvey) => {
-        addSurvey(newSurvey);
-        setSelectedSurvey({});
-        navigate("/thanks", { replace: true, state: `Thank you for creating the ${newSurvey.surveyTitle} survey! The survey has now been saved succesfully.` });
+        if (newSurvey.surveyTitle.length > 0) {
+            setSurveyTitleValid(true)
+            addSurvey(newSurvey);
+            setSelectedSurvey({});
+            navigate("/thanks", { replace: true, state: `Thank you for creating the ${newSurvey.surveyTitle} survey! The survey has now been saved succesfully.` });
+        } else setSurveyTitleValid(false);
     };
 
     return (
@@ -205,33 +214,35 @@ const CreateSurvey = () => {
                 <Button onClick={() => setModifyIsActive(true)} variant="outline-secondary">Modify/delete an existing survey</Button>{' '}
             </Container>
 
-            <Container fluid className="mt-5">
+            <Container fluid className="my-5">
                 <Row>
                     {modifyIsActive ?
                         <Col xs={3} className="mx-4">
                             <Sidebar modifyIsActive={modifyIsActive} />
                         </Col>
                         : <Col xs={2} className="mx-4"></Col>}
-                    <Col xs={6} className='text-left mx-4 resultsSheet'>
+                    <Col xs={7} className='text-left mx-4 resultsSheet'>
                         {modifyIsActive ?
-                            <div>
+                            <div className="text-center">
                                 {selectedSurvey.surveyTitle ? <h4>Modify: <i>{selectedSurvey.surveyTitle}</i></h4>
                                     : <h4>Select a survey to modify from the left sidebar by clicking a survey name. If you want to delete a survey, use the trash-icon.</h4>}
                             </div>
                             :
-                            <h4>To create a question, choose what kind of a question do you want to use.
+                            
+                            <h4 className="text-center">To create a question, choose what kind of a question do you want to use.
                                 The question types are: dropdown, multiple choices and free text.</h4>}
 
                         <hr style={{ background: "#c9c8b9", height: "8px" }} />
 
                         <Stack gap={3}>
-                            <Form>
+                            {surveyTitleValid ? (null) : <Alert variant="danger">You must enter a survey title. You can modify the rest of the survey later.</Alert>}
+                            <Form >
                                 <Form.Label>Give your survey a short and descriptive title:</Form.Label>
-                                <Form.Control onChange={createSurveyTitle} type="text" defaultValue={newSurvey.surveyTitle} required/>
+                                <Form.Control onChange={createSurveyTitle} type="text" defaultValue={newSurvey.surveyTitle} required />
 
                                 <Form.Label>Write a short description of the survey:</Form.Label>
                                 <Form.Control as="textarea" onChange={createSurveyDescription} rows={3}
-                                    defaultValue={newSurvey.surveyDescription} required/>
+                                    defaultValue={newSurvey.surveyDescription} required />
                             </Form>
 
                             {newSurvey.questions.map(question =>
@@ -304,7 +315,8 @@ const CreateSurvey = () => {
                                 {(chosenQuestionType === "multiple-choice") ? <AddDropdown createQuestion={createQuestion} /> : null}
                                 {(chosenQuestionType === "freetext") ? <AddFreetext createQuestion={createQuestion} /> : null}
                             </div>
-                            <button onClick={() => handleSave(newSurvey)} type="submit">Submit survey</button>
+                            
+                            <Button onClick={() => handleSave(newSurvey)} variant="outline-dark" type="submit">Submit survey</Button>
                         </Stack>
 
                     </Col>

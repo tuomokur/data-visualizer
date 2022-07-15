@@ -21,8 +21,7 @@ const AnswerSurvey = () => {
     const { addAnswers, selectedSurvey, setSelectedSurvey } = useSurveyContext();
 
     const [answerState, setAnswerState] = useState({});
-    const [checkOptions, setCheckOptions] = useState({ options: [], response: [] });
-    //const [questionId, setQuestionId] = useState();
+    const [checkOptions, setCheckOptions] = useState({ options: [] });
 
     const navigate = useNavigate();
 
@@ -33,35 +32,33 @@ const AnswerSurvey = () => {
     const handleDropdown = (question, option) => {
         setAnswerState({ ...answerState, [question]: option });
     };
+    
+    const handleMultipleChoices = (question, event) => {
 
-    const handleOptionChange = (question, event) => {
-        //event.preventDefault();
-        //setQuestionId(question.questionId)
-        
         const { value, checked } = event.target;
         const { options } = checkOptions;
 
         if (checked) {
-            setCheckOptions({ 
-                options: [...options, value],
-                response: [...options, value],
+            setCheckOptions({
+                options: [...options, { id: question.questionId, opt: value }]
+                //options: [...options, value]
             });
         }
+        //Tämä ei toimi vielä oikein, error: opt.filter is not a function
         else {
+            
             setCheckOptions({
-                options: options.filter(opt => opt !== value),
-                response: options.filter(opt => opt !== value),
+                
+                options: options.map(opt => {const arr = opt.filter(item => item[1].opt !== value); return arr})
+                //options: [options.filter(opt => opt !== value)]
             });
-        };  
-        setAnswerState({ ...answerState, [question.questionId]: checkOptions.response });    
-    };       
-    console.log(checkOptions.response); 
+        };
+    };    
 
     const handleSave = (event) => {
         event.preventDefault();
-        const surveyId = selectedSurvey.id;      
-        console.log(answerState);
-            
+        const surveyId = selectedSurvey.id;
+
         addAnswers(answerState, surveyId);
         setSelectedSurvey({});
         navigate("/thanks", { replace: true, state: `Thank you for answering the ${selectedSurvey.surveyTitle} survey! Your answers have now been saved succesfully. ` });
@@ -71,12 +68,12 @@ const AnswerSurvey = () => {
     const listSurveyQuestionsDOM = selectedSurvey.questions ? selectedSurvey.questions.map((question) => {
         number += 1;
         return (
-            <Form.Group key={question.questionid} className="mb-3" >
+            <Form.Group key={question.questionid} className="mb-3" style={{ borderStyle: "solid", borderColor: "#c9c8b9", borderWidth: "4px", padding: "10px" }} >
                 <Form.Label>{number}. {question.questionTitle}</Form.Label>
 
                 {(question.questionType === "freetext") ? <div>
                     <Form.Control as="textarea" onChange={(event) => handleInput(question.questionId, event)} placeholder="Write your answer here" />
-                    </div> : (null)}
+                </div> : (null)}
 
                 {(question.questionType === "dropdown") ? <div>
                     <Dropdown className="mb-2" as={ButtonGroup}>
@@ -100,7 +97,7 @@ const AnswerSurvey = () => {
                                     value={opt}
                                     id={opt}
                                     label={opt}
-                                    onChange={(event) => handleOptionChange(question, event)}                            
+                                    onChange={(event) => handleMultipleChoices(question, event)}
                                 />
                             </div>
                         ))}
@@ -110,21 +107,21 @@ const AnswerSurvey = () => {
     }) : (null);
 
     return (
-        <Container fluid className="mt-5 mb-5"> 
+        <Container fluid className="my-5">
             <Row>
                 <Col xs={3} className="mx-4">
                     <Sidebar />
                 </Col>
                 {selectedSurvey.surveyTitle ?
                     <Col xs={7} className="text-left resultsSheet">
-                        <div className="mb-5">
-                            <h4><i>{selectedSurvey.surveyTitle}</i></h4>
-                            <br />
-                            <p><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
+                        <div>
+                            <h4 className="text-center mb-3"><i>{selectedSurvey.surveyTitle}</i></h4>
+                            <p className="text-center mb-4"><b>Description of the survey:</b> {selectedSurvey.surveyDescription}</p>
                         </div>
+                        <hr style={{ background: "#c9c8b9", height: "8px" }} />
                         <Form>
                             {listSurveyQuestionsDOM}
-                            <button onClick={handleSave} type="submit">Submit Answers</button>
+                            <Button onClick={handleSave} variant="outline-dark" type="submit" style={{ width: "100%"}}>Submit Answers</Button>
                         </Form>
                     </Col>
                     : <Col ><h5>First, choose a survey from the left sidebar to give your answer.</h5></Col>}

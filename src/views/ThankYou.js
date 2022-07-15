@@ -6,8 +6,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-
 
 const ThankYou = () => {
 
@@ -30,7 +28,7 @@ const ThankYou = () => {
                             </Col>
                             <Col>
                                 <Link className="mainLink" to="/create">
-                                    <h5 className="mb-4">Create or modify another survey</h5>
+                                    <h5 className="mb-4">Create or modify survey</h5>
                                 </Link>
                             </Col>
                             <Col className="mb-5">

@@ -55,7 +55,6 @@ const AddDropdown = (props) => {
                         placeholder='Write option here'
                         aria-label='Add question option'
                         aria-describedby='basic-addon2'
-                        required
                     />
                     <OverlayTrigger key="edit" placement="top" overlay={<Tooltip id="edit">Save and add new</Tooltip>}>
                         <Button onClick={saveDropdown} variant="outline-secondary" id="button-addon2" type="button">

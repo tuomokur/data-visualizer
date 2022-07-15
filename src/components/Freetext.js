@@ -13,10 +13,10 @@ const Freetext = () => {
                 const answers = selectedSurvey.answers.map(answ => answ[q.questionId])
  
                 return (
-                    <div className="border border-secondary border-2 rounded my-4 py-3" >
-                        <h5 className=""> {q.questionTitle}</h5>
+                    <div style={{ borderStyle: "solid", borderColor: "#c9c8b9", borderWidth: "4px", padding: "10px", marginBottom: "10px"}}>
+                        <h5 className="mb-4"> {q.questionTitle}</h5>
                         {answers.map(x => {
-                            return <ul className="px-5"><li>{x}</li></ul>
+                            return <ul style={{ listStylePosition: "inside", padding: "0 1em" }}><li>{x}</li></ul>
                         })
                         }
                     </div>
